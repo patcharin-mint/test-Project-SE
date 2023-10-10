@@ -1,22 +1,16 @@
-package ku.cs.flowerManagement.entity;
+package ku.cs.flowerManagement.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Data
-@Entity
-public class Flower {
+public class FlowerRequest {
 
     private UUID id;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int FID; //รหัสของดอกไม้
     private String FName; //ชื่อดอกไม้
     private String how_to_plant; //วิธีการปลูก
@@ -27,6 +21,4 @@ public class Flower {
     private String pic; //รูปภาพของดอกไม้
     private int quantity; //จำนวนดอกไม้
 
-    @OneToMany(mappedBy = "flower")
-    private List<OrderFlower> orders = new ArrayList<>();
 }

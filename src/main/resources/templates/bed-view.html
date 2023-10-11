@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flower Management Web Application</title>
+    <link th:rel="stylesheet" th:href="@{/css/output.css}">
+<!--     <script th:src="@{/js/bootstrap.min.js}"></script>-->
+</head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<h1 class="display-6">Bed ที่ปลูกแล้ว</h1>
+
+<table  class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+    <tr class="table-dark">
+        <th>เลขที่แปลง</th>
+        <th>วันที่ปลูก</th>
+        <th>จำนวนที่ปลูก</th>
+        <th>จำนวนคงเหลือ</th>
+        <th>ชื่อดอกไม้</th>
+        <th>ราคา</th>
+        <th>จำนวนดอก</th>
+        <th>สถานะของดอกไม้ในแปลง</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td th:text="${plantOrder.PID}"></td>
+        <td th:text="${plantOrder.timePlant}"></td>
+        <td th:text="${plantOrder.quantity}"></td>
+        <td th:text="${plantOrder.total}"></td>
+        <td th:text="${plantOrder.flower.FName}"></td>
+        <td style="text-align: right" th:text="${#numbers.formatDecimal(plantOrder.flower.price, 0, 'COMMA', 2, 'POINT')}"></td>
+        <td th:text="${plantOrder.flower.quantity}"></td>
+        <td th:text="${plantOrder.flowerStatus}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

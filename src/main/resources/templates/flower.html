@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Flower</title>
@@ -9,6 +9,7 @@
     <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
+<div th:insert="~{fragments/header :: header}"></div>
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -52,9 +53,11 @@
                     </table>
                 </div>
             </div>
+
             <div>
                 <a th:href="@{/flower/create}" class="btn btn-primary">Add Flower</a>
             </div>
+
         </div>
     </div>
 </div>

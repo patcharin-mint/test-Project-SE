@@ -1,41 +1,59 @@
 package ku.cs.flowerManagement.entity;
 
 import jakarta.persistence.*;
+import ku.cs.flowerManagement.common.FlowerStatus;
 import ku.cs.flowerManagement.common.OrderMethods;
-import ku.cs.flowerManagement.common.PlantStatus;
-import ku.cs.flowerManagement.common.Status;
+import ku.cs.flowerManagement.common.OrderStatus;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
 
 @Data
 @Entity
-public class OrderFlower {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int OID; //รหัส Order
-    private int quantity; //จำนวนดอกไม้
+public class OrderItem {
 
-    @CreationTimestamp
-    private LocalDateTime date; //วันที่สั่ง order
+//    @Id
+//    private UUID OID; //รหัส Order
+
+
+//    @Enumerated(EnumType.STRING)
+    private OrderStatus status; // ตั้งค่าสถานะเริ่มต้น Complete, Pending, Canceled;
+
+
+//    @Enumerated(EnumType.STRING)
+//    private FlowerStatus plant_status; // สถานะปลูก ไล่หาจาก FK ได้
 
     @Enumerated(EnumType.STRING)
-    private Status status; // ตั้งค่าสถานะเริ่มต้น Complete, Pending, Canceled;
+    private OrderMethods order_method; // วิธีสั่งซื้อ ปลีก/ล็อต
+
+//    @ManyToOne
+//    @JoinColumn(name = "FID")
+//    private Flower flower;
+
+
+
+    //mint
+    @Id
+    @GeneratedValue
+    private UUID id;
+
+    @CreationTimestamp
+    private LocalDateTime date;
 
     private double price;
 
-    @Enumerated(EnumType.STRING)
-    private PlantStatus plant_status; // สถานะปลูก
-
-    @Enumerated(EnumType.STRING)
-    private OrderMethods order_method; // วิธีสั่งซื้อ
-
     @ManyToOne
-    @JoinColumn(name = "FID")
-    private Flower flower;
+    private Flower flower; //ดอกไม้
 
+    private int quantity; //จำนวนดอกไม้
 
-    // Constructors, getters, and setters
+    @OneToMany(mappedBy = "order") // JPA join ให้
+    private List<Allocate> listAllocate;
+
+    @OneToOne(mappedBy = "order")
+    private PlantOrder plantOrder;
 }
 

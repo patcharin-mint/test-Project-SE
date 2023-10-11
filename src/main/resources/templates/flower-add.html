@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flower Management Web Application</title>
+  <link th:rel="stylesheet" th:href="@{/css/output.css}">
+<!--   <link th:rel="stylesheet" th:href="">-->
+<!--   <script th:src="@{/js/bootstrap.min.js}"></script>-->
+</head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+
+<div>
+<form action="#" th:action="@{/flowers/add}" method="POST">
+  <div class="mb-3">
+    <label for="inputName">Name</label>
+    <input id="inputName" type="input" class="form-control"
+           name="FName">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputHow_to_plant">How to plant</label>
+    <input id="inputHow_to_plant" type="input" class="form-control"
+           name="how_to_plant">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputHow_to_take_care">How to take care</label>
+    <input id="inputHow_to_take_care" type="input" class="form-control"
+           name="how_to_take_care">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputseedPeriod">seed Period</label>
+    <input id="inputseedPeriod" type="input" class="form-control"
+           name="seedPeriod">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputsproutPeriod">sproutPeriod</label>
+    <input id="inputsproutPeriod" type="input" class="form-control"
+           name="sproutPeriod">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputgrowingPeriod">growingPeriod</label>
+    <input id="inputgrowingPeriod" type="input" class="form-control"
+           name="growingPeriod">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputfullyGrownPeriod">fullyGrownPeriod</label>
+    <input id="inputfullyGrownPeriod" type="input" class="form-control"
+           name="fullyGrownPeriod">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputharvestPeriod">harvestPeriod</label>
+    <input id="inputharvestPeriod" type="input" class="form-control"
+           name="harvestPeriod">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputHow_to_harvest">How to harvest</label>
+    <input id="inputHow_to_harvest" type="input" class="form-control"
+           name="how_to_harvest">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputPrice">Price</label>
+    <input id="inputPrice" type="input" class="form-control"
+           name="price">
+  </div>
+
+  <div class="mb-3">
+    <label for="inputQuantity">Quantity</label>
+    <input id="inputQuantity" type="input" class="form-control"
+           name="quantity">
+  </div>
+
+  <button id=ๅ"submit-button" type="submit" class="btn btn-primary">Add Flower</button>
+</form>
+</div>
+
+</body>
+</html>

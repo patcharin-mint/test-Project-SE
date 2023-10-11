@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Flower Detail</title>
 </head>
 <body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+<h1>แก้ไขข้อมูลดอกไม้</h1>
+
 <form th:if="${flower.getFID()}" th:action="@{'/flower/' + ${flower.getFID()}}" th:method="PUT" th:object="${flower}" >
     <div class="mb-3">
         <label for="inputFNAME">FNAME (ชื่อดอกไม้)</label>
@@ -38,6 +42,9 @@
     </div>
     <button th:text="${flower.getFID()} ? 'Update' : 'Save'" id="submit-button" type="submit" ></button>
 </form>
+
+<h1>เพิ่มดอกไม้</h1>
+
 <form th:unless="${flower.getFID()}" th:action="@{/flower}" th:method="POST" th:object="${flower}">
     <div class="mb-3">
         <label for="inputFNAME2">FNAME (ชื่อดอกไม้)</label>
@@ -71,5 +78,6 @@
     </div>
     <button th:text="${flower.getFID()} ? 'Update' : 'Save'" id="submit-button2" type="submit" ></button>
 </form>
+
 </body>
 </html>

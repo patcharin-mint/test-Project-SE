@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flower Management Web Application</title>
+    <link th:rel="stylesheet" th:href="@{/css/output.css}">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<!--    <script th:src="@{/js/bootstrap.min.js}"></script>-->
+</head>
+<body>
+    <div th:insert="~{fragments/header :: header}"></div>
+    <div class="container w-50 p-3">
+        <h1 class="display-5">ALL BED </h1>
+    </div>
+
+
+    <div th:each="i : ${#numbers.sequence(1, 10)}">
+        <form th:action="@{/beds/{PID}(PID=${i})}" method="post">
+            <input type="hidden" name="PID" th:value="${i}" />
+            <button type="submit" th:text="'Button ' + ${i}">BED </button>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

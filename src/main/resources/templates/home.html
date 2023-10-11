@@ -9,11 +9,29 @@
 </head>
 <body>
 <div class="container">
+  <div th:insert="~{fragments/header :: header}"></div>
 
   <h1 class="text-green-500 text-5xl">Flower Management</h1>
 
   <p><span th:text="${greeting}"></span></p>
   <button class="btn">Button</button>
+
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/beds}">Bed</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/flower}">Flowers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/flower/create}">Add Flower</a>
+    </li>
+
+
+  </ul>
 
 </div>
 </body>
